@@ -1,0 +1,771 @@
+/* montserrat-regular - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 400;
+	src: local(""),
+		url("../fonts/montserrat-v15-latin-regular.woff2") format("woff2"),
+		/* Chrome 26+, Opera 23+, Firefox 39+ */
+			url("../fonts/montserrat-v15-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* montserrat-700 - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 700;
+	src: local(""),
+		url("../fonts/montserrat-v15-latin-700.woff2") format("woff2"),
+		/* Chrome 26+, Opera 23+, Firefox 39+ */
+			url("../fonts/montserrat-v15-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* nunito-sans-regular - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	font-weight: 400;
+	src: local(""),
+		url("../fonts/nunito-sans-v6-latin-regular.woff2") format("woff2"),
+		/* Chrome 26+, Opera 23+, Firefox 39+ */
+			url("../fonts/nunito-sans-v6-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* nunito-sans-700 - latin */
+@font-face {
+	font-display: swap;
+	font-family: "Nunito Sans";
+	font-style: normal;
+	font-weight: 700;
+	src: local(""),
+		url("../fonts/nunito-sans-v6-latin-700.woff2") format("woff2"),
+		/* Chrome 26+, Opera 23+, Firefox 39+ */
+			url("../fonts/nunito-sans-v6-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* Styles généraux */
+
+:root {
+	--primary: #e95841;
+	--body_bgc: #f9f9f9;
+	--header-hero_bgc: #f0f0f0;
+	--button_orange: #e9584129;
+	--white: #ffffff;
+	--hero_white_button: #00000019;
+	--body_font: #333333;
+	--title: #181818;
+	--proccess_item: #00000014;
+	--drop_shadow: #00000019;
+}
+
+img {
+	border-radius: 5%;
+}
+
+body {
+	font-family: "Nunito Sans", sans-serif;
+	color: var(--body_font);
+	font-size: 1.8rem;
+	line-height: 1.67;
+	background-color: var(--body_bgc);
+}
+
+h1 {
+	font-family: "Montserrat", sans-serif;
+	font-size: 6.4rem;
+	line-height: 1.2;
+	font-weight: 700;
+}
+
+h1 span {
+	font-weight: 400;
+}
+
+h2 {
+	font-family: "Montserrat", sans-serif;
+	font-size: 5.4rem;
+	line-height: 1.2;
+	font-weight: 400;
+	padding-bottom: 2.7rem;
+}
+
+h2 span {
+	font-weight: 700;
+}
+
+h3 {
+	padding-bottom: 2.3rem;
+}
+
+/* Layout */
+
+.container {
+	/* position: relative; */
+	width: 100%;
+	max-width: 111rem; /* 108 rem + 3 rem de padding */
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.pre-title {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+	color: var(--primary);
+	font-size: 1.6rem;
+	line-height: 1.19;
+}
+
+/* Header */
+
+.main-header {
+	color: var(--body_font);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	padding-top: 2.8rem;
+	padding-bottom: 2.8rem;
+	background-color: var(--header-hero_bgc);
+}
+
+.main-header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--header-hero_bgc);
+}
+
+/* Navigation */
+
+.main-nav button {
+	position: relative;
+	font: 0/0 a;
+	color: transparent;
+	border: 0;
+	text-shadow: none;
+	width: 4rem;
+	height: 2.4rem;
+	padding: 1rem 0;
+	background-color: var(--primary);
+	background-clip: content-box;
+	transition: 0.3s;
+}
+
+.main-nav button::before,
+.main-nav button::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 0.4rem;
+	background-color: var(--primary);
+	transition: 0.3s;
+	transform-origin: left;
+}
+
+.main-nav button::before {
+	top: 0;
+}
+
+.main-nav button::after {
+	bottom: 0;
+}
+
+.main-nav button[aria-expanded="true"] {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.main-nav button[aria-expanded="true"]::before {
+	transform: translate(0.5rem, -0.375rem) rotate(45deg);
+}
+
+.main-nav button[aria-expanded="true"]::after {
+	transform: translate(0.5rem, 0.375rem) rotate(-45deg);
+}
+
+.main-nav .menu {
+	position: absolute;
+	z-index: 100;
+	top: 100%;
+	left: 0;
+	right: 0;
+	display: block;
+	transform: translateX(-100%);
+	transition: 0.3s;
+	background-color: var(--header-hero_bgc);
+}
+
+.main-nav .menu:not([hidden]) {
+	transform: translateX(0);
+}
+
+.main-nav a {
+	display: block;
+	padding: 1rem 1rem;
+	font-weight: 700;
+	color: var(--body_font);
+	text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:focus {
+	color: var(--primary);
+	border-bottom: 0.4rem solid var(--primary);
+}
+
+/* Hero */
+
+.hero {
+	display: grid;
+	color: var(--body_font);
+	background-color: var(--header-hero_bgc);
+}
+
+.hero .container {
+	/* max-width: 90rem; */
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 6.5rem;
+}
+
+.hero-content {
+	display: flex;
+	flex-direction: column;
+	max-width: 53rem;
+}
+
+.border-line {
+	border-bottom: 0.5rem solid var(--primary);
+	width: 7.6rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.hero-illustration {
+	display: flex;
+	flex-direction: column;
+	gap: 6rem;
+	align-items: center;
+	/* padding-top: 3.4rem; */
+	padding-left: 12.1rem;
+	margin-top: 2rem;
+}
+
+.cta-list.cta-list {
+	display: flex;
+	font-family: "Montserrat", sans-serif;
+	font-size: 1.4rem;
+	padding-top: 3.6rem;
+}
+
+.cta-link-wt,
+.cta-link-wt[type="submit"]:hover,
+.cta-link-wt[type="submit"]:focus {
+	display: inline-block;
+	padding: 1rem 3.2rem;
+	margin-right: 1.6rem;
+	font-size: 1.4rem;
+	color: var(--white);
+	line-height: 1.86;
+	text-decoration: none;
+	transition: 0.6s;
+	background: var(--primary) 0% 0% no-repeat padding-box;
+	border-radius: 20rem;
+	opacity: 1;
+}
+
+.cta-link-wt:hover,
+.cta-link-wt:focus,
+.cta-link-wt[type="submit"] {
+	background-color: hsla(8, 79%, 58%, 0.514);
+	color: var(--primary);
+}
+
+.cta-link-r,
+.cta-link-r[type="submit"]:hover,
+.cta-link-r[type="submit"]:focus {
+	display: inline-block;
+	padding: 1rem 5.3rem;
+	font-size: 1.4rem;
+	color: var(--primary);
+	line-height: 1.86;
+	text-decoration: none;
+	transition: 0.6s;
+	background: var(--body_bgc) 0% 0% no-repeat padding-box;
+	border-radius: 20rem;
+	box-shadow: 0rem 0.5rem 1rem var(--drop_shadow);
+	opacity: 1;
+}
+
+.cta-link-r:hover,
+.cta-link-r:focus,
+.cta-link-r[type="submit"] {
+	background-color: hsla(8, 79%, 58%, 0.514);
+	color: var(--white);
+}
+
+.hero_social-list {
+	display: flex;
+	gap: 2.3rem;
+	margin-right: 2rem;
+	align-items: center;
+}
+
+.hero_social-item img {
+	opacity: 0.5;
+	padding-bottom: 16.8rem;
+}
+
+.contact_social-item img {
+	opacity: 0.5;
+}
+
+/* End of Hero */
+
+/* Skills */
+
+/* Ux Design */
+
+.skills-item:nth-child(2n) {
+	grid-template-columns: minmax(auto, max-content) 50rem;
+	justify-content: flex-start;
+}
+
+.skills-item:not(:last-child) {
+	margin-bottom: 7.2rem;
+}
+
+.skills-item:nth-child(1n) {
+	padding-top: 5.6rem;
+}
+
+.skills-item {
+	display: grid;
+	grid-template-columns: 50rem minmax(auto, max-content);
+	justify-content: flex-end;
+	gap: 7rem;
+}
+
+.skills-item-illustration img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+.skills-item-illustration img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.skills-item-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin-top: 2.8rem;
+	max-width: 43.7rem;
+}
+
+.skills-item:nth-child(2n) .skills-item-illustration {
+	order: -1;
+}
+
+.skills-item:nth-child(2n) .skills-item-content {
+	justify-self: end;
+}
+
+.cta-link-lc,
+.cta-link-lc[type="submit"]:hover,
+.cta-link-lc[type="submit"]:focus {
+	display: inline-block;
+	padding: 1rem 4.4rem;
+	margin-right: 1.6rem;
+	font-size: 1.4rem;
+	color: var(--white);
+	line-height: 1.86;
+	text-decoration: none;
+	transition: 0.6s;
+	background: var(--primary) 0% 0% no-repeat padding-box;
+	border-radius: 20rem;
+	opacity: 1;
+}
+
+.cta-link-lc:hover,
+.cta-link-lc:focus,
+.cta-link-lc[type="submit"] {
+	background-color: hsla(8, 79%, 58%, 0.514);
+	color: var(--primary);
+}
+
+.cta-link-gt,
+.cta-link-gt[type="submit"]:hover,
+.cta-link-gt[type="submit"]:focus {
+	display: inline-block;
+	padding: 1rem 4rem;
+	font-size: 1.4rem;
+	color: var(--primary);
+	line-height: 1.86;
+	/* letter-spacing: .166em; */
+	text-decoration: none;
+	transition: 0.6s;
+	background: var(--body_bgc) 0% 0% no-repeat padding-box;
+	border-radius: 20rem;
+	box-shadow: 0rem 0.5rem 1rem var(--drop_shadow);
+	opacity: 1;
+}
+
+.cta-link-gt:hover,
+.cta-link-gt:focus,
+.cta-link-gt[type="submit"] {
+	/* background-color: hsla(24, 71%, 68%, 0.514); */
+	background-color: hsla(8, 79%, 58%, 0.514);
+	color: var(--white);
+}
+/* End of Ux Design */
+
+/*Data Viz */
+
+.cta-link-git,
+.cta-link-git[type="submit"]:hover,
+.cta-link-git[type="submit"]:focus {
+	display: inline-block;
+	padding: 1rem 4rem;
+	margin-right: 1.6rem;
+	font-size: 1.4rem;
+	color: var(--white);
+	line-height: 1.86;
+	text-decoration: none;
+	transition: 0.6s;
+	background: var(--primary) 0% 0% no-repeat padding-box;
+	border-radius: 20rem;
+	opacity: 1;
+}
+
+.cta-link-git:hover,
+.cta-link-git:focus,
+.cta-link-git[type="submit"] {
+	background-color: hsla(8, 79%, 58%, 0.514);
+	color: var(--primary);
+}
+
+.cta-link-ce,
+.cta-link-ce[type="submit"]:hover,
+.cta-link-ce[type="submit"]:focus {
+	display: inline-block;
+	padding: 1rem 3rem;
+	font-size: 1.4rem;
+	color: var(--primary);
+	line-height: 1.86;
+	text-decoration: none;
+	transition: 0.6s;
+	background: var(--body_bgc) 0% 0% no-repeat padding-box;
+	border-radius: 20rem;
+	box-shadow: 0rem 0.5rem 1rem var(--drop_shadow);
+	opacity: 1;
+}
+
+.cta-link-ce:hover,
+.cta-link-ce:focus,
+.cta-link-ce[type="submit"] {
+	/* background-color: hsla(24, 71%, 68%, 0.514); */
+	background-color: hsla(8, 79%, 58%, 0.514);
+	color: var(--white);
+}
+
+/* End of Data Viz */
+
+/* Front Dev */
+
+.cta-link-etp,
+.cta-link-etp[type="submit"]:hover,
+.cta-link-etp[type="submit"]:focus {
+	display: inline-block;
+	padding: 1rem 2rem;
+	font-size: 1.4rem;
+	color: var(--primary);
+	line-height: 1.86;
+	text-decoration: none;
+	transition: 0.6s;
+	background: var(--body_bgc) 0% 0% no-repeat padding-box;
+	border-radius: 20rem;
+	box-shadow: 0rem 0.5rem 1rem var(--drop_shadow);
+	opacity: 1;
+}
+
+.cta-link-etp:hover,
+.cta-link-etp:focus,
+.cta-link-etp[type="submit"] {
+	/* background-color: hsla(24, 71%, 68%, 0.514); */
+	background-color: hsla(8, 79%, 58%, 0.514);
+	color: var(--white);
+}
+
+/* End of Front Dev */
+
+/* End of Skills */
+
+/* Proccess */
+
+.proccess .container {
+	padding-top: 11.2rem;
+}
+
+.proccess-card__grid {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 2.8rem;
+}
+
+.proccess-title {
+	grid-column: 1 / -1;
+	text-align: center;
+}
+
+.proccess-pre-title {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+	color: var(--primary);
+	font-size: 1.6rem;
+	line-height: 1.19;
+	grid-column: 1 / -1;
+	text-align: center;
+}
+
+.proccess-card {
+	background: #ffffff 0% 0% no-repeat padding-box;
+	box-shadow: 0px 14px 40px #00000014;
+	border-radius: 5px;
+	opacity: 1;
+}
+
+.proccess-card span {
+	color: var(--primary);
+	font-weight: 700;
+}
+
+.proccess-card h3 {
+	padding-top: 3.3rem;
+	padding-left: 3.4rem;
+	font-size: 2.6rem;
+	line-height: 1.23;
+	font-weight: 700;
+}
+
+.proccess-card p {
+	font-size: 1.4rem;
+	padding-left: 3.4rem;
+	padding-bottom: 3.3rem;
+	padding-right: 3.3rem;
+}
+
+.proccess-card:hover {
+	transform: scale(1.1);
+	box-shadow: 0px 0px 1px #000, 0px 0px 20px rgba(253, 126, 53, 4.5);
+	border-radius: 2%;
+	transition: 0.6s;
+}
+
+h2,
+h3 {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
+}
+/* End of Proccess */
+
+/* Contact */
+
+.contact .container {
+	padding-top: 11.2rem;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	padding-bottom: 11.2rem;
+}
+
+.contact-wt {
+	max-width: 43.7rem;
+}
+
+.contact-form-wb label {
+	font-weight: 700;
+	line-height: 1.67;
+}
+
+input,
+textarea {
+	border: none;
+}
+
+#name,
+#email {
+	height: 5.5rem;
+}
+
+#project {
+	height: 16rem;
+	width: 53rem;
+}
+
+.contact-lsc {
+	padding-top: 3.6rem;
+}
+
+.contact_social-list {
+	display: flex;
+	gap: 2.9rem;
+}
+
+.contact-form-wb {
+	display: grid;
+	grid-template-columns: 50rem minmax(auto, max_content);
+	justify-content: flex-end;
+	gap: 1.4rem;
+}
+
+.form-btn {
+	margin-top: 4rem;
+	margin-left: 15rem;
+}
+
+.form-btn,
+.form-btn[type="submit"]:hover,
+.form-btn[type="submit"]:focus {
+	display: inline-block;
+	padding: 1rem 3.9rem;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+	font-size: 1.6rem;
+	color: var(--white);
+	line-height: 1.625;
+	text-decoration: none;
+	transition: 0.6s;
+	background: var(--primary) 0% 0% no-repeat padding-box;
+	border: none;
+	border-radius: 20rem;
+	opacity: 1;
+}
+
+.form-btn:hover {
+	transform: scale(1.1);
+	box-shadow: 0px 0px 1px #000, 0px 0px 2px var(--primary);
+	transition: 0.6s;
+}
+
+/* End of Contact */
+
+/* Footer */
+
+.main-footer {
+	background-color: var(--white);
+}
+
+.main-footer_social-item img {
+	opacity: 0.5;
+}
+
+.main-footer_social-list {
+	gap: 1.8rem;
+}
+
+.main-footer .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 4.2rem;
+	padding-bottom: 4.2rem;
+}
+
+.fl_footer .name {
+	font-size: 3.7rem;
+	line-height: 1.2;
+}
+
+.firstname {
+	font-size: 3.7rem;
+	line-height: 1.2;
+	font-weight: 700;
+}
+
+.fl_footer .job_baseline {
+	display: block;
+	font-family: "Nunito Sans", sans-serif;
+	font-size: 1.4rem !important;
+	line-height: 1.71 !important;
+}
+
+.fl {
+	justify-content: space-between;
+	align-items: center;
+	flex-shrink: 0;
+	padding-right: 1.7rem;
+}
+
+.container .main-footer_social-list {
+	display: flex;
+	justify-content: flex-end;
+	margin-left: auto;
+}
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	width: 1px;
+	position: absolute;
+	white-space: nowrap;
+}
+
+.main-footer_social-item {
+	display: flex;
+}
+
+/* Responsive */
+@media (min-width: 36em) {
+	.proccess-card__grid {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 2.8rem;
+	}
+
+	.skills .container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 48em) {
+	.proccess-card__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2.8rem;
+	}
+}
+
+@media (min-width: 64em) {
+}
+
+@media (min-width: 75em) {
+	.proccess-card__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2.8rem;
+	}
+
+	.menu {
+		display: flex;
+	}
+
+	.main-nav button {
+		display: none;
+	}
+
+	.main-nav .menu {
+		position: static;
+		display: flex;
+		transform: translateX(0);
+		transition: 0.3s;
+	}
+}
